@@ -1,0 +1,2934 @@
+м. Бар, вул. Героїв Майдану 16; +380975553124</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1c1c1e;
+            --text-main: #f5f5f7;
+            --text-muted: #a1a1a6;
+            --accent-orange: #ff6b4a;
+            --accent-gold: #e5ba4f;
+            --border-color: #2c2c2e;
+        }
+
+        /* Додано плавну прокрутку */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 20px 10px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-main);
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        /* Стилі для меню навігації */
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            padding: 10px;
+        }
+
+        .nav-link {
+            color: var(--text-main);
+            text-decoration: none;
+            background-color: var(--card-bg);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+            background-color: rgba(255, 107, 74, 0.05);
+        }
+
+        .section-title {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 1.8rem;
+            margin: 40px 0 20px 0;
+            padding: 10px;
+            background: linear-gradient(90deg, transparent, var(--card-bg), transparent);
+            color: var(--accent-orange);
+            /* Відступ зверху, щоб заголовок не ховався під екран при переході */
+            scroll-margin-top: 20px; 
+        }
+
+        .section-subtitle {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: -15px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .item-image-container {
+           margin: 20px 0;
+        }
+
+        .item-image {
+           max-width: 150px;
+           height: auto;
+           display: block;
+           margin: 0 auto;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-3px);
+            border-color: #444;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-main);
+            padding-right: 10px;
+        }.item-weight {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            background: #2c2c2e;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        .item-ingredients {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 15px;
+        }
+
+        .price-tag {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+
+        .price-split {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            font-size: 0.95rem;
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-right: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 2rem; }
+            .section-title { font-size: 1.5rem; }
+            .nav-link { padding: 8px 15px; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>МЕНЮ SMAKI ROLL</h1>
+        <p>Свіжість та смак у кожному шматочку</p>
+    </header>
+
+    <!-- Блок швидкої навігації по розділах -->
+    <nav class="nav-menu">
+        <a href="#philadelphia" class="nav-link">Філадельфія</a>
+        <a href="#philadelphia tropic" class="nav-link">Філадельфія Тропік</a>
+        <a href="#philadelphia ikra-sesame" class="nav-link">Філадельфія В ікрі / Кунжуті</a>
+        <a href="#signature" class="nav-link">Фірмові роли</a>
+        <a href="#news" class="nav-link">Новинки</a> 
+        <a href="#akihaba" class="nav-link">Акінава</a>
+        <a href="#maki" class="nav-link">Макі</a>
+        <a href="#yin-yang" class="nav-link">Інь-Янь</a>
+        <a href="#smaki-shawarma" class="nav-link">Smaki Шаурма</a>
+        <a href="#gunkani" class="nav-link">Гункани</a>
+        <a href="#nigiri" class="nav-link">Нігірі</a>
+        <a href="#cheder-roli" class="nav-link">Чедер роли</a>
+        <a href="#drakoni" class="nav-link">Дракони</a>
+        <a href="#california-ikra" class="nav-link">Каліфорнія в ікрі</a>
+        <a href="#california-kunzhut" class="nav-link">Каліфорнія в кунжуті</a>
+        <a href="#roli-hiyashi" class="nav-link">Роли хіяші</a>
+        <a href="#ekonom-roli" class="nav-link">Економ роли</a>
+        <a href="#grill-menu" class="nav-link">Гриль меню</a>
+        <a href="#hot-rolls-xxl" class="nav-link">Теплі роли XXL</a>
+        <a href="#sushi-burger" class="nav-link">Суші бургер</a>
+        <a href="#baked-ikra" class="nav-link">Запечені в ікрі</a>
+        <a href="#baked-kunzhut" class="nav-link">Запечені в кунжуті</a>
+        <a href="#baked-maki" class="nav-link">Запечені макі</a>
+        <a href="#baked-akinava" class="nav-link">Запечена акінава</a>
+        <a href="#sets" class="nav-link">Сети</a>  
+        <a href="#hot-sets" class="nav-link">Hot Сети</a>
+        <a href="#additionally" class="nav-link">Додатково</a>
+        <a href="#drinks" class="nav-link">Напої</a>      
+     
+
+    </nav>
+
+    <!-- Додано id="philadelphia" -->
+    <h2 class="section-title" id="philadelphia">Філадельфія</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Лайт</span>
+                <span class="item-weight">265 грам</span>
+            </div>  
+
+            <div class="item-image-container">
+                <img src="Лайт.png" alt="Лайт" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось</p>
+            <div class="item-footer">
+                <span class="price-tag">220 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Класична</span>
+                <span class="item-weight">275 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="Класична.png" alt="Класична" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, огірок, авокадо</p>
+            <div class="item-footer">
+                <span class="price-tag">230 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Сяке</span>
+                <span class="item-weight">280 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="Сяке.png" alt="Сяке" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, огірок, авокадо, ікра тобіко</p>
+            <div class="item-footer">
+                <span class="price-tag">240 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Вугрем</span>
+                <span class="item-weight">280 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="З вугрем.png" alt="З вугрем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, вугор, огірок, авокадо, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">260 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Мікс 4/4</span>
+                <span class="item-weight">275 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="Мікс.png" alt="Мікс" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, огірок, вугор</p>
+            <div class="item-footer">
+                <span class="price-tag">250 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Креветкою</span>
+                <span class="item-weight">290 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="З креветкою.png" alt="З креветкою" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, огірок, креветка</p>
+            <div class="item-footer">
+                <span class="price-tag">265 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З копченим лососем</span>
+                <span class="item-weight">270 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="З копченим лососем.png" alt="З копченим лососем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, копчений лосось, огірок, авокадо</p>
+            <div class="item-footer">
+                <span class="price-tag">245 грн</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Додано id="tropic" -->
+    <h2 class="section-title" id="philadelphia tropic">Філадельфія тропік</h2>
+    <p class="section-subtitle">Зап. Лосось / Вугор</p>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Грушею</span>
+                <span class="item-weight">280 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="З грушею.png" alt="З грушею" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, груша, зап. лосось/вугор, унагі</p>
+            <div class="item-footer">
+                <div class="price-split">
+                    <div><span class="price-label">Лосось:</span><span class="price-tag">245 грн</span></div>
+                    <div><span class="price-label">Вугор:</span><span class="price-tag">260 грн</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Манго</span>
+                <span class="item-weight">280 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="З манго.png" alt="З манго" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, манго, зап. лосось/вугор, унагі</p>
+            <div class="item-footer">
+                <div class="price-split">
+                    <div><span class="price-label">Лосось:</span><span class="price-tag">245 грн</span></div>
+                    <div><span class="price-label">Вугор:</span><span class="price-tag">260 грн</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Ананасом</span>
+                <span class="item-weight">280 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="З ананасом.png" alt="З ананасом" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, ананас, зап. лосось/вугор, унагі</p>
+            <div class="item-footer">
+                <div class="price-split">
+                    <div><span class="price-label">Лосось:</span><span class="price-tag">245 грн</span></div>
+                    <div><span class="price-label">Вугор:</span><span class="price-tag">260 грн</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Додано id="ikra-sesame" -->
+    <h2 class="section-title" id="philadelphia ikra-sesame">Філадельфія в ікрі / Кунжуті</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Лососем</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="В ік, кун з лососем.png" alt="В ік, кун з лососем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, огірок</p>
+            <div class="item-footer">
+                <div class="price-split">
+                    <div><span class="price-label">В ікрі:</span><span class="price-tag">200 грн</span></div>
+                    <div><span class="price-label">В кунжуті:</span><span class="price-tag">185 грн</span></div>
+                </div>
+            </div>
+        </div><div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Вугрем</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="В ік, кун з вугрем.png" alt="В ік, кун з вугрем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, вугор, огірок</p>
+            <div class="item-footer">
+                <div class="price-split">
+                    <div><span class="price-label">В ікрі:</span><span class="price-tag">220 грн</span></div>
+                    <div><span class="price-label">В кунжуті:</span><span class="price-tag">205 грн</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Креветкою</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="В ік, кун з креветкою.png" alt="В ік, кун з креветкою" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, креветка, огірок</p>
+            <div class="item-footer">
+                <div class="price-split">
+                    <div><span class="price-label">В ікрі:</span><span class="price-tag">200 грн</span></div>
+                    <div><span class="price-label">В кунжуті:</span><span class="price-tag">185 грн</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Копченим Лососем</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="В ік, кун з копченим лососем.png" alt="В ік, кун з копченим лососем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, копчений лосось, огірок</p>
+            <div class="item-footer">
+                <div class="price-split">
+                    <div><span class="price-label">В ікрі:</span><span class="price-tag">205 грн</span></div>
+                    <div><span class="price-label">В кунжуті:</span><span class="price-tag">190 грн</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Сніжним крабом</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="В ік, кун з сн крабом.png" alt="В ік, кун з сн крабом" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, сн. краб, огірок</p>
+            <div class="item-footer">
+                <div class="price-split">
+                    <div><span class="price-label">В ікрі:</span><span class="price-tag">190 грн</span></div>
+                    <div><span class="price-label">В кунжуті:</span><span class="price-tag">175 грн</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Додано id="signature" -->
+    <h2 class="section-title" id="signature">Фірмові роли</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Smaki Roll</span>
+                <span class="item-weight">285 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="smaki.png" alt="smaki рол" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, огірок, креветка, зап. лосось, вугор, ікра тобіко, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">285 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Грін рол</span>
+                <span class="item-weight">240 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="гр рол.png" alt="грін рол" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, огірок, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">185 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Ебі Рол</span>
+                <span class="item-weight">290 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="ебі.png" alt="ебі" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, креветка, огірок, ікра тобіко</p>
+            <div class="item-footer">
+                <span class="price-tag">240 грн</span>
+            </div>
+        </div><div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Футо з креветкою темпура</span>
+                <span class="item-weight">270 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="футо.png" alt="футо" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, огірок, креветка в темпурі, ікра тобіко</p>
+            <div class="item-footer">
+                <span class="price-tag">225 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Вугор-Огірок-Креветка</span>
+                <span class="item-weight">275 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="вок.png" alt="вок" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, вугор, огірок, креветка, ікра тобіко, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">235 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Чіз з креветкою темпура</span>
+                <span class="item-weight">265 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="чіз з кр.png" alt="чіз з кр" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, сир чедер, креветка в темпурі, огірок, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">230 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Подвійний Сир</span>
+                <span class="item-weight">300 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="подвійний сир.png" alt="подвійний сир" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, зап. лосось, сир чедер, огірок, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">255 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Веган Рол</span>
+                <span class="item-weight">245 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="веган.png" alt="веган" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, груша, авокадо, огірок, унагі, мигдальні пластівці</p>
+            <div class="item-footer">
+                <span class="price-tag">185 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Запечений Гриль</span>
+                <span class="item-weight">280 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="зап гриль.png" alt="зап гриль" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, зап. лосось, огірок, авокадо, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">240 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">BBQ від Шефа</span>
+                <span class="item-weight">285 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="від шефа.png" alt="від шефа" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, зап. лосось, огірок, сніжний краб, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">265 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Аляска</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="аляска.png" alt="аляска" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, огірок, зап. лосось</p>
+            <div class="item-footer">
+                <span class="price-tag">185 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Фелікс</span>
+                <span class="item-weight">300 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="фелікс.png" alt="фелікс" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, крабовий мікс, ікра тобіко, креветка, огірок, кунжут, горіховий+унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">270 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Авокадовий Бум</span><span class="item-weight">275 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="авокадовий бум.png" alt="авокадовий бум" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, авокадо, огірок, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">235 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Асорті</span>
+                <span class="item-weight">270 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="асорті рол.png" alt="асорті рол" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, ікра тобіко, креветка,лосось, вугор, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">235 грн</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Додано id="news" -->
+    <h2 class="section-title" id="news">Новинки</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Осака</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="осака.png" alt="осака" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, сніжний краб, креветка, авокадо, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">205 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Фудзі</span>
+                <span class="item-weight">325 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="фудзі.png" alt="фудзі" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, вугор, авокадо, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">265 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Ебі Лосось</span>
+                <span class="item-weight">260 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="ебі л.png" alt="ебі л" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, креветка, лосось, огірок, ікра тобіко</p>
+            <div class="item-footer">
+                <span class="price-tag">215 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Імператорський</span>
+                <span class="item-weight">325 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="імп.png" alt="імператорський" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, огірок, вугор, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">295 грн</span>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title" id="akihaba">Akihaba</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Лососем</span>
+                <span class="item-weight">270 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="акінава з лососем.png" alt="акінава з лососем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, ікра тобіко, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">199 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Вугрем</span>
+                <span class="item-weight">270 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="акінава з вугрем.png" alt="акінава з вугрем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, вугор, ікра тобіко, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">210 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Креветкою</span>
+                <span class="item-weight">270 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="акінава з креветкою.png" alt="акінава з креветкою" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, креветка, огірок, ікра тобіко</p>
+            <div class="item-footer">
+                <span class="price-tag">199 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Копченим Лососем</span>
+                <span class="item-weight">270 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="акінава з коп лососем.png" alt="акінава з коп лососем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, копчений лосось, ікра тобіко, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">205 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Сніжним крабом</span>
+                <span class="item-weight">270 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="акінава з сн крабом.png" alt="акінава з сн крабом" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, сн. краб, ікра тобіко, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">180 грн</span>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="section-title" id="smaki-shawarma">Smaki Шаурма</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Лососем</span>
+                <span class="item-weight">300 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="шаурма з лососем.png" alt="шаурма з лососем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, сир чедер, огірок, унагі, кунжут</p>
+            <div class="item-footer">
+                <span class="price-tag">225 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Вугрем</span>
+                <span class="item-weight">300 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="шаурма з вугрем.png" alt="шаурма з вугрем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, вугор, сир чедер, огірок, унагі, кунжут</p>
+            <div class="item-footer">
+                <span class="price-tag">245 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Креветкою</span>
+                <span class="item-weight">300 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="шаурма з креветкою.png" alt="шаурма з креветкою" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, креветка, сир чедер, огірок, унагі, кунжут</p>
+            <div class="item-footer">
+                <span class="price-tag">225 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Сніжним крабом</span>
+                <span class="item-weight">300 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="шаурма з сніжним крабом.png" alt="шаурма з сніжним крабом" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, сн. краб, сир чедер, огірок, унагі, кунжут</p>
+            <div class="item-footer">
+                <span class="price-tag">215 грн</span></div>
+        </div>
+    </div>
+
+    <h2 class="section-title" id="maki">Maki</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Лососем</span>
+                <span class="item-weight">110 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="мл.png" alt="макі з лососем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, лосось</p>
+            <div class="item-footer">
+                <span class="price-tag">110 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Вугрем</span>
+                <span class="item-weight">110 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="мв.png" alt="макі з вугрем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, вугор</p>
+            <div class="item-footer">
+                <span class="price-tag">120 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Авокадо</span>
+                <span class="item-weight">110 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="ма.png" alt="макі з авокадо" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, авокадо</p>
+            <div class="item-footer">
+                <span class="price-tag">85 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Огірком</span>
+                <span class="item-weight">110 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="мо.png" alt="макі з огірком" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, копчений лосось</p>
+            <div class="item-footer">
+                <span class="price-tag">80 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Креветкою</span>
+                <span class="item-weight">110 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="мк.png" alt="макі з креветкою" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, креветка</p>
+            <div class="item-footer">
+                <span class="price-tag">110 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Сніжним крабом</span>
+                <span class="item-weight">110 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="мс.png" alt="макі з сн крабом" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, сн. краб</p>
+            <div class="item-footer">
+                <span class="price-tag">99 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Копченим лососем</span>
+                <span class="item-weight">110 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="мл.png" alt="макі з коп. лососем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, коп. лосось</p>
+            <div class="item-footer">
+                <span class="price-tag">115 грн</span>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="section-title" id="yin-yang">Інь-Янь</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Лосось-Вугор</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="іялв.png" alt="іялв" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, лосось, вугор, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">205 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Креветка-Лосось</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="іялк.png" alt="іялк" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, лосось, креветка</p>
+            <div class="item-footer">
+                <span class="price-tag">195 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Сніжний Краб-Креветка</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="іякс.png" alt="іякс" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, сніжний краб, креветка</p>
+            <div class="item-footer">
+                <span class="price-tag">185 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Вугор-Сніжний краб</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="іясв.png" alt="іясв" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, вугор, сн. краб, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">195 грн</span>
+            </div>
+        </div>
+    </div>
+    
+
+    <h2 class="section-title" id="gunkani">Гункани</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Лососем</span>
+                <span class="item-weight">65 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="гункан з лос.png" alt="гункан з лос" class="item-image">
+            </div>
+
+            <div class="item-footer">
+                <span class="price-tag">85 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Вугрем</span>
+                <span class="item-weight">65 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="гункан з вугрем.png" alt="гункан з вугрем" class="item-image">
+            </div>
+
+            <div class="item-footer">
+                <span class="price-tag">95 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Креветкою</span>
+                <span class="item-weight">65 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="гункан з креветкою.png" alt="гункан з креветкою" class="item-image">
+            </div>
+
+            <div class="item-footer">
+                <span class="price-tag">85 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Копченим Лососем</span>
+                <span class="item-weight">65 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="гункан з коп. лососем.png" alt="гункан з коп. лососем" class="item-image">
+            </div>
+
+            <div class="item-footer">
+                <span class="price-tag">85 грн</span>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="section-title" id="nigiri">Нігірі</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Лососем</span>
+                <span class="item-weight">45 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="нігірі з лососем.png" alt="нігірі з лососем" class="item-image">
+            </div>
+
+            <div class="item-footer">
+                <span class="price-tag">50 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Вугрем</span>
+                <span class="item-weight">45 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="нігірі з вугрем.png" alt="нігірі з вугрем" class="item-image">
+            </div>
+
+            <div class="item-footer">
+                <span class="price-tag">60 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Креветкою</span>
+                <span class="item-weight">45 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="нігірі з креветкою.png" alt="нігірі з креветкою" class="item-image">
+            </div>
+
+            <div class="item-footer">
+                <span class="price-tag">50 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Копченим лососем</span>
+                <span class="item-weight">45 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="нігірі з лососем.png" alt="нігірі з лососем" class="item-image">
+            </div>
+
+            <div class="item-footer">
+                <span class="price-tag">50 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Запеченим Лососем</span>
+                <span class="item-weight">45 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="нігірі з запеченим лососем.png" alt="нігірі з запеченим лососем" class="item-image">
+            </div>
+
+            <div class="item-footer">
+                <span class="price-tag">50 грн</span>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="section-title" id="cheder-roli">Чедер Роли</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Лососем</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="чл.png" alt="з лососем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, сир чедер, огірок, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">205 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Вугрем</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="чв.png" alt="з вугрем" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, вугор, сир чедер, огірок, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">220 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Креветкою</span>
+                <span class="item-weight">265 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="чк.png" alt="з креветкою" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, креветка, сир чедер, огірок, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">205 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Грушею</span>
+                <span class="item-weight">265 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="чг.png" alt="з грушею" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, зап. лосось, груша, сир чедер, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">210 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Ніжний Чіз</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="нч.png" alt="ніжний чіз" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, груша, сир чедер, унагі, стружка мигдаля</p>
+            <div class="item-footer">
+                <span class="price-tag">185 грн</span>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="section-title" id="drakoni">Дракони</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Червоний</span>
+                <span class="item-weight">270 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="чед.png" alt="червоний" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, лосось, вугор, ікра тобіко, авокадо, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">285 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Зелений</span>
+                <span class="item-weight">260 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="зед.png" alt="зед" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, вугор, авокадо, огірок, ікра тобіко, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">240 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Чорний</span>
+                <span class="item-weight">270 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="чод.png" alt="чод" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, креветка, вугор, ікра тобіко, авокадо, огірок, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">295 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Золотий</span>
+                <span class="item-weight">290 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="зд.png" alt="зд" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, вугор, авокадо, огірок, ікра тобіко, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">305 грн</span>
+            </div>
+        </div>
+    </div>
+    <h2 class="section-title" id="california-ikra">Каліфорнія в ікрі</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Лососем</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="кіл.png" alt="кіл" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, авокадо, лосось, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">185 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Вугрем</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="ків.png" alt="ків" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, авокадо, вугор, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">205 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Креветкою</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="кік.png" alt="кік" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, авокадо, креветка, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">185 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Сніжним Крабом</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="кіс.png" alt="кіс" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, авокадо, сн. краб, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">175 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Копченим Лососем</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="кіл.png" alt="кіл" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, авокадо, коп. лосось, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">190 грн</span>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="section-title" id="california-kunzhut">Каліфорнія в кунжуті</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Лососем</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="ккл.png" alt="ккл" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, авокадо, лосось, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">170 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Вугрем</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="ккв.png" alt="ккв" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, авокадо, вугор, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">190 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Креветкою</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="ккк.png" alt="ккк" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, авокадо, креветка, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">170 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Сніжним крабом</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="ккс.png" alt="ккс" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, авокадо, сн. краб, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">160 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Копченим Лососем</span>
+                <span class="item-weight">220 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="ккл.png" alt="ккл" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, авокадо, коп. лосось, огірок</p>
+            <div class="item-footer">
+                <span class="price-tag">175 грн</span>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="section-title" id="roli-hiyashi">Роли Хіяші</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Хіяші</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="х.png" alt="хіяші" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, огірок, салат хіяші, горіховий, кунжут</p>
+            <div class="item-footer">
+                <span class="price-tag">150 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Лососем</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="хл.png" alt="хіяші лосось" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, лосось, огірок, салат хіяші, горіховий, кунжут</p>
+            <div class="item-footer">
+                <span class="price-tag">185 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">З Вугрем</span>
+                <span class="item-weight">250 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="хв.png" alt="хіяші вугор" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, вугор, огірок, салат хіяші, горіховий, кунжут</p>
+            <div class="item-footer">
+                <span class="price-tag">205 грн</span>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="section-title" id="ekonom-roli">Економ Роли</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">В Кунжуті</span>
+                <span class="item-weight">225 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="ек.png" alt="В кунжуті" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, огірок, кунжут</p>
+            <div class="item-footer">
+                <span class="price-tag">140 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">В Ікрі</span>
+                <span class="item-weight">225 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="еі.png" alt="В ікрі" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, огірок, ікра тобіко</p>
+            <div class="item-footer">
+                <span class="price-tag">155 грн</span>
+            </div>
+        </div>
+
+        <div class="menu-item">
+            <div class="item-header">
+                <span class="item-title">Чедер</span>
+                <span class="item-weight">225 грам</span>
+            </div>
+
+            <div class="item-image-container">
+                <img src="еч.png" alt="чедер" class="item-image">
+            </div>
+
+            <p class="item-ingredients">Рис, норі, крем-сир, огірок, сир чедер, унагі</p>
+            <div class="item-footer">
+                <span class="price-tag">155 грн</span>
+            </div>
+        </div>
+    </div>
+    <h2 class="section-title" id="grill-menu">Гриль Меню</h2>
+<div class="menu-grid">
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Картопля Фрі</span>
+            <span class="item-weight">150 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="фрі.png" alt="фрі" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Соус на вибір</p>
+        <div class="item-footer">
+            <span class="price-tag">78 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Нагетси</span>
+            <span class="item-weight">6 штук</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="нагетси.png" alt="нагетси" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Соус на вибір</p>
+        <div class="item-footer">
+            <span class="price-tag">95 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Цибулеві кільця</span>
+            <span class="item-weight">8 штук</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="цибулеві кільця.png" alt="цибулеві кільця" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Соус на вибір</p>
+        <div class="item-footer">
+            <span class="price-tag">90 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Сирні кульки філадельфія</span>
+            <span class="item-weight">10 штук</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="сирні кульки.png" alt="сирні кульки" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Соус на вибір</p>
+        <div class="item-footer">
+            <span class="price-tag">68 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Сирні палички “Моцарелла”</span>
+            <span class="item-weight">6 штук</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="сирні палички.png" alt="сирні палички" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Соус на вибір</p>
+        <div class="item-footer">
+            <span class="price-tag">130 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Курячі крильця Кріспі</span>
+            <span class="item-weight">4 штуки</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="курячі крильця.png" alt="курячі крильця" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Соус на вибір</p>
+        <div class="item-footer">
+            <span class="price-tag">140 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Креветки в темпурі</span>
+            <span class="item-weight">5 штук</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="креветки в темпурі.png" alt="креветки в темпурі" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Соус на вибір</p>
+        <div class="item-footer">
+            <span class="price-tag">170 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Рисові чіпси</span>
+            <span class="item-weight">10 штук</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="рисові чіпси.png" alt="рисові чіпси" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Соус на вибір</p>
+        <div class="item-footer">
+            <span class="price-tag">99 грн</span>
+        </div>
+    </div>
+</div>
+
+<h2 class="section-title" id="hot-rolls-xxl">Теплі Роли XXL</h2>
+<div class="menu-grid">
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Лососем</span>
+            <span class="item-weight">350 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="тл.png" alt="тл" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, лосось, темпура, сухарі, унагі</p>
+        <div class="item-footer">
+            <span class="price-tag">255 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Креветкою</span>
+            <span class="item-weight">350 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="тк.png" alt="тк" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, огірок, креветка, ікра тобіко, темпура, сухарі, унагі</p>
+        <div class="item-footer">
+            <span class="price-tag">255 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Сніжним крабом та ананасом</span>
+            <span class="item-weight">350 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="тс.png" alt="тс" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, сн.краб, ананас, темпура, сухарі, унагі</p>
+        <div class="item-footer">
+            <span class="price-tag">260 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Вугрем та грушею</span>
+            <span class="item-weight">350 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="тв.png" alt="тв" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, вугор, груша, темпура, сухарі, унагі</p>
+        <div class="item-footer">
+            <span class="price-tag">275 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Копченим лососем</span>
+            <span class="item-weight">350 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="тл.png" alt="тл" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, коп. лосось, огірок, темпура, сухарі, унагі</p>
+        <div class="item-footer">
+            <span class="price-tag">260 грн</span>
+        </div>
+    </div>
+</div>
+
+<h2 class="section-title" id="sushi-burger">Суші Бургер</h2>
+<div class="menu-grid">
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Лососем</span>
+            <span class="item-weight">350 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="бургер з лососем.png" alt="бургер з лососем" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, лосось, ікра тобіко, сир чедер, темпура, сухарі, огірок, унагі</p>
+        <div class="item-footer">
+            <span class="price-tag">270 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Вугрем</span>
+            <span class="item-weight">350 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="бургер з вугрем.png" alt="бургер з вугрем" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, вугор, ікра тобіко, сир чедер, темпура, сухарі, огірок, унагі</p>
+        <div class="item-footer">
+            <span class="price-tag">290 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Креветкою</span>
+            <span class="item-weight">350 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="бургер з креветкою.png" alt="бургер з креветкою" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, креветка, ікра тобіко, сир чедер, темпура, сухарі, огірок, унагі</p>
+        <div class="item-footer">
+            <span class="price-tag">270 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Сніжним крабом</span>
+            <span class="item-weight">350 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="бургер з сн. крабом.png" alt="бургер з сн. крабом" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, сн. краб, ікра тобіко, сир чедер, темпура, сухарі, огірок, унагі</p>
+        <div class="item-footer">
+            <span class="price-tag">265 грн</span>
+        </div>
+    </div>
+</div>
+
+<h3 class="section-title" id="baked-ikra">Запечені роли в ікрі</h3>
+<div class="menu-grid">
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Лососем</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="зіл.png" alt="зіл" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, лосось, огірок, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">255 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Креветкою</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="зік.png" alt="зік" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, креветка, огірок, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">255 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Сніжним крабом</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="зіс.png" alt="зіс" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, сн. краб, огірок, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">250 грн</span>
+        </div>
+    </div>
+</div>
+
+<h3 class="section-title" id="baked-kunzhut">Запечені роли в кунжуті</h3>
+<div class="menu-grid">
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Лососем</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="зкл.png" alt="зкл" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, лосось, огірок, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">255 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Вугрем</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="зкв.png" alt="зкв" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, вугор, огірок, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">275 грн</span>
+        </div>
+    </div>
+</div>
+
+<h3 class="section-title" id="baked-maki">Запечені Макі</h3>
+<div class="menu-grid">
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Лососем</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="змл.png" alt="змл" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, лосось, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">165 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Вугрем</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="змв.png" alt="змв" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, вугор, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">175 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Креветкою</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="змк.png" alt="змк" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, креветка, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">165 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Сніжним крабом</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="змс.png" alt="змс" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, сніжний краб, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">160 грн</span>
+        </div>
+    </div>
+</div>
+
+<h3 class="section-title" id="baked-akinava">Запечена Акінава</h3>
+<div class="menu-grid">
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Лососем</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="зал.png" alt="зал" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, лосось, огірок, ікра тобіко, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">260 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Вугрем</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="зав.png" alt="зав" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, вугор, огірок, ікра тобіко, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">275 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Креветкою</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="зак.png" alt="зак" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, креветка, огірок, ікра тобіко, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">255 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Грушею</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="заг.png" alt="заг" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, груша, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">235 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">З Манго</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="зам.png" alt="зам" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Рис, норі, крем-сир, манго, сирна шапочка</p>
+        <div class="item-footer">
+            <span class="price-tag">235 грн</span>
+        </div>
+    </div>
+</div>
+    <h2 class="section-title" id="sets">СЕТИ</h2>
+<div class="menu-grid">
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Міні Філадельфія</span>
+            <span class="item-weight">550 грам / 16 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="міні.png" alt="міні" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Філадельфія лайт/4, Філадельфія Сяке/4, Філадельфія з вугрем/4, Акінава з лососем/4</p>
+        <div class="item-footer">
+            <span class="price-tag">437 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Maki</span>
+            <span class="item-weight">550 грам / 30 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="макі сет.png" alt="макі сет" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Макі з авокадо, Макі з лососем, Макі з вугрем, Макі з копченим лососем, Макі з креветкою</p>
+        <div class="item-footer">
+            <span class="price-tag">513 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Комбо</span>
+            <span class="item-weight">845 грам / 24 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="комбо.png" alt="комбо" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Теріякі рол, Теплий рол з креветкою, Економ чедер</p>
+        <div class="item-footer">
+            <span class="price-tag">590 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Тріо</span>
+            <span class="item-weight">705 грам / 24 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="тріо.png" alt="тріо" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Філадельфія лайт, Чедер з лососем, Акінава з креветкою</p>
+        <div class="item-footer">
+            <span class="price-tag">593 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Кайфовий</span>
+            <span class="item-weight">810 грам / 24 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="кайфовий.png" alt="кайфовий" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Філадельфія мікс, Ніжний чіз, Ебі рол</p>
+        <div class="item-footer">
+            <span class="price-tag">643 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Економ</span>
+            <span class="item-weight">1010 грам / 32 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="економ.png" alt="економ" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Чедер з лососем, Економ в ікрі, Акінава з сніжним крабом, Хіяші з лососем</p>
+        <div class="item-footer">
+            <span class="price-tag">689 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Каліфорнія</span>
+            <span class="item-weight">900 грам / 32 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="каліфорнія.png" alt="каліфорнія" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Каліфорнія в ікрі з лос., Каліфорнія в кун. з вугрем, Каліфорнія в ікрі з сн. кр., Каліфорнія в кун. з коп. лос.</p>
+        <div class="item-footer">
+            <span class="price-tag">690 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">На двох</span>
+            <span class="item-weight">845 грам / 28 шм</span>
+        </div>
+ 
+            <div class="item-image-container">
+                <img src="на двох.png" alt="на двох" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Філадельфія Мікс, Макі з лососем, Макі з креветкою, Теплий рол XL з вугрем та грушею</p>
+        <div class="item-footer">
+            <span class="price-tag">707 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Лососеманія</span>
+            <span class="item-weight">1045 грам / 32 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="лососеманія.png" alt="лососеманія" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Філа. класична, Філа. в кунжуті з лососем, Філа. в ікрі з лососем, Акінава з лососем</p>
+        <div class="item-footer">
+            <span class="price-tag">775 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Мікс</span>
+            <span class="item-weight">1000 грам / 32 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="мікс сет.png" alt="мікс сет" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Філа. класична, Філа.з вугрем, Каліфорнія в ікрі з креветкою, Каліфорнія в кун. з лососем</p>
+        <div class="item-footer">
+            <span class="price-tag">803 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Філадельфія</span>
+            <span class="item-weight">1100 грам / 32 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="філа.png" alt="філа" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Філа. лайт, Філа. Сяке, Філа. з вугрем, Акінава з лососем</p>
+        <div class="item-footer">
+            <span class="price-tag">873 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Асорті</span>
+            <span class="item-weight">1080 грам / 32 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="асорті.png" alt="асорті" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Асорті рол x4</p>
+        <div class="item-footer">
+            <span class="price-tag">893 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Гурман</span>
+            <span class="item-weight">1054 грам / 32 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="гурман.png" alt="гурман" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Вугор-огірок-креветка, Зап. гриль, Зелений дракон, Асорті</p>
+        <div class="item-footer">
+            <span class="price-tag">903 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Smaki</span>
+            <span class="item-weight">1120 грам / 32 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="смакі.png" alt="смакі" class="item-image">
+            </div>
+
+        <p class="item-ingredients">SMAKI Ролл, Філа. з лос. та креветкою, Подвійний сир, Акінава з зап. лососем</p>
+        <div class="item-footer">
+            <span class="price-tag">965 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="header">
+            <span class="item-title">Преміум</span>
+            <span class="item-weight">1100 грам / 32 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="преміум.png" alt="преміум" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Філа. тропік (зап. лосось), Філа. з вугрем, Червоний дракон, Футо з креветкою темпура</p>
+        <div class="item-footer">
+            <span class="price-tag">965 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Насолода</span>
+            <span class="item-weight">1290 грам / 40 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="насолода.png" alt="насолода" class="item-image">
+            </div>
+
+        <p class="item-ingredients">BBQ від шефа, Філа. Мікс, Інь-Янь (креветка/сн.краб), Чедер рол з креветкою, Філа. в кун. з коп. лососем</p>
+        <div class="item-footer">
+            <span class="price-tag">1040 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">4 Дракони</span>
+            <span class="item-weight">1100 грам / 32 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="4 дракони.png" alt="4 дракони" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Чорний др., Червоний др., Зелений др., Золотий др.</p>
+        <div class="item-footer">
+            <span class="price-tag">1070 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Мега Філадельфія</span>
+            <span class="item-weight">1550 грам / 48 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="мега.png" alt="мега" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Філа. класична, Зап. гриль, Чедер з лососем, Акінава з вугрем, Філа. в кун. з лососем, Філа. в ікрі з креветкою</p>
+        <div class="item-footer">
+            <span class="price-tag">1207 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Корпоратив</span>
+            <span class="item-weight">2110 грам / 64 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="корпоратив1.png" alt="корпоратив" class="item-image">
+                <img src="корпоратив2.png" alt="корпоратив" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Філа. лайт, Філа. в ікрі з лососем, Подвійний сир, Аляска, Акінава з сн. крабом, Ебі рол, Каліфорнія в кун. з вугрем, Чіз з креветкою темпура</p>
+        <div class="item-footer">
+            <span class="price-tag">1615 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">NEW “ЕЛІТ МІКС”</span>
+            <span class="item-weight">1160 грам / 32 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="еліт мікс сет.png" alt="еліт мікс сет" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Фудзі, Осака, Ебі лосось, Імператорський</p>
+        <div class="item-footer">
+            <span class="price-tag">931 грн</span>
+        </div>
+    </div>
+</div>
+
+<h2 class="section-title" id="hot-sets">Hot СЕТИ</h2>
+<div class="menu-grid">
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Фрі Сет+Соуси</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="фрі сет.png" alt="фрі сет" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Картопля фрі, сирні палички, курячі крильця, нагетси, цибулеві кільця, рисові чіпси</p>
+        <div class="item-footer">
+            <span class="price-tag">570 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Гриль Сет</span>
+            <span class="item-weight"></span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="гриль сет.png" alt="гриль сет" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Теплий рол з лососем, Теплий рол з сн. крабом та ананасом, Цибулеві кільця в темпурі, Креветки в темпурі</p>
+        <div class="item-footer">
+            <span class="price-tag">635 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Сет теплих ролів</span>
+            <span class="item-weight">24 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="сет теплих.png" alt="сет теплих" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Теплий рол з лососем, теплий рол з креветкою, теплий рол з вугрем та манго</p>
+        <div class="item-footer">
+            <span class="price-tag">747 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Запечений Сет</span>
+            <span class="item-weight">24 шм</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="сет запечених.png" alt="запечений сет" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Запечений в ікрі з креветкою, Запечений в кун. з вугрем, Запечена акінава з грушею</p>
+        <div class="item-footer">
+            <span class="price-tag">727 грн</span>
+        </div>
+    </div>
+</div>
+
+<h2 class="section-title" id="additionally">ДОДАТКОВО</h2>
+<div class="menu-grid">
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Соєвий соус</span>
+            <span class="item-weight">50 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="соєвий.png" alt="соєвий" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">20 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Кетчуп соус</span>
+            <span class="item-weight">50 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="лагідний.png" alt="лагідний" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">20 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Горіховий соус</span>
+            <span class="item-weight">50 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="горіховий.png" alt="горіховий" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">30 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Васабі</span>
+            <span class="item-weight">50 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="васабі.png" alt="васабі" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">20 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Sweet чилі соус</span>
+            <span class="item-weight">50 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="солодкий чілі.png" alt="солодкий чілі" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">30 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Імбир</span>
+            <span class="item-weight">50 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="імбир.png" alt="імбир" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">20 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Унагі соус</span>
+            <span class="item-weight">50 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="унагі.png" alt="унагі" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">30 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Салат Хіяші</span>
+            <span class="item-weight">130 грам</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="салат хіяші.png" alt="салат хіяші" class="item-image">
+            </div>
+
+        <p class="item-ingredients">Горіховий соус + кунжут</p>
+        <div class="item-footer">
+            <span class="price-tag">140 грн</span>
+        </div>
+    </div>
+</div>
+
+<div class="footer-note">
+    <p>В СЕТИ ТА РОЛИ ВХОДИТЬ: ІМБИР, ВАСАБІ, СОЄВИЙ СОУС, ПРИБОРИ</p>
+</div>
+
+
+<h2 class="section-title" id="drinks">НАПОЇ</h2>
+<div class="menu-grid">
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Coca-Cola</span>
+            <span class="item-weight">0.25 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="кола жб.png" alt="кола жб" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">30 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Coca-Cola</span>
+            <span class="item-weight">0.33 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="кола жб.png" alt="кола жб" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">35 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Coca-Cola Zero</span>
+            <span class="item-weight">0.33 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="кола зеро жб.png" alt="кола зеро жб" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">35 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Pepsi</span>
+            <span class="item-weight">0.33 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="пепсі жб.png" alt="пепсі жб" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">35 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Pepsi Zero</span>
+            <span class="item-weight">0.33 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="пепсі зеро жб.png" alt="пепсі зеро жб" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">35 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Fanta</span>
+            <span class="item-weight">0.33 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="фанта.png" alt="фанта" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">35 грн</span>
+        </div>
+    </div>
+
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Sprite</span>
+            <span class="item-weight">0.33 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="спрайт.png" alt="спрайт" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">35 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Coca-Cola</span>
+            <span class="item-weight">0.5 л</span>
+        </div> 
+
+            <div class="item-image-container">
+                <img src="кола.png" alt="кола" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">40 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Coca-Cola Zero</span>
+            <span class="item-weight">0.5 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="кола зеро.png" alt="кола зеро" class="item-image">
+            </div>
+ 
+        <div class="item-footer">
+            <span class="price-tag">40 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Pepsi</span>
+            <span class="item-weight">0.75 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="пепсі.png" alt="пепсі" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">55 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Моршинська</span>
+            <span class="item-weight">0.5 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="моршинська.png" alt="моршинська" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">30 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Моршинська мохіто</span>
+            <span class="item-weight">0.33 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="моршинська мохіто.png" alt="моршинська мохіто" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">35 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Моршинська ягоди</span>
+            <span class="item-weight">0.33 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="моршинська ягоди.png" alt="моршинська ягоди" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">35 грн</span>
+        </div>
+    </div>
+    <div class="menu-item">
+        <div class="item-header">
+            <span class="item-title">Сік дитячий</span>
+            <span class="item-weight">0.2 л</span>
+        </div>
+
+            <div class="item-image-container">
+                <img src="садочок.png" alt="сік" class="item-image">
+            </div>
+
+        <div class="item-footer">
+            <span class="price-tag">30 грн</span>
+        </div>
+    </div>
+</div>
+
+<h2 class="section-title" id="promotion">АКЦІЯ</h2>
+<div class="menu-grid">
+    </div>
+    <footer>
+        <p>© 2026 Суші Бар. Сайт створено виключно для ознайомлення з меню.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
